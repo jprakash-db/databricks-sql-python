@@ -1,9 +1,9 @@
 from typing import Any, List, Optional, Dict, Union
 
-import databricks.sqlalchemy._ddl as dialect_ddl_impl
-import databricks.sqlalchemy._types as dialect_type_impl
+import sqlalchemy_db._ddl as dialect_ddl_impl
+import sqlalchemy_db._types as dialect_type_impl
 from databricks import sql
-from databricks.sqlalchemy._parse import (
+from sqlalchemy_db._parse import (
     _describe_table_extended_result_to_dict_list,
     _match_table_not_found_string,
     build_fk_dict,

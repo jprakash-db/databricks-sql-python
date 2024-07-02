@@ -5,7 +5,7 @@ description = "Databricks SQL Connector for Python"
 authors = ["Databricks <databricks-sql-connector-maintainers@databricks.com>"]
 license = "Apache-2.0"
 readme = "README.md"
-packages = [{ include = "databricks", from = "src" }]
+packages = [{ include = "databricks" }]
 include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
@@ -25,7 +25,7 @@ numpy = [
 ]
 #sqlalchemy = { version = ">=2.0.21", optional = true }
 openpyxl = "^3.0.10"
-alembic = { version = "^1.0.11", optional = true }
+#alembic = { version = "^1.0.11", optional = true }
 urllib3 = ">=1.26"
 
 #[tool.poetry.extras]

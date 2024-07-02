@@ -51,8 +51,8 @@ from sqlalchemy.testing.suite import (
     ValuesExpressionTest,
 )
 
-from databricks.sqlalchemy.test.overrides._ctetest import CTETest
-from databricks.sqlalchemy.test.overrides._componentreflectiontest import (
+from sqlalchemy_db.test.overrides._ctetest import CTETest
+from sqlalchemy_db.test.overrides._componentreflectiontest import (
     ComponentReflectionTest,
 )
 

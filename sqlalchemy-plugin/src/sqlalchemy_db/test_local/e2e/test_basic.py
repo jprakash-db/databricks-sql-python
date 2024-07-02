@@ -472,7 +472,7 @@ def test_user_agent_adjustment(db_engine):
 @pytest.fixture
 def sample_table(metadata_obj: MetaData, db_engine: Engine):
     """This fixture creates a sample table and cleans it up after the test is complete."""
-    from databricks.sqlalchemy._parse import GET_COLUMNS_TYPE_MAP
+    from sqlalchemy_db._parse import GET_COLUMNS_TYPE_MAP
 
     table_name = "PySQLTest_{}".format(datetime.datetime.utcnow().strftime("%s"))
 
