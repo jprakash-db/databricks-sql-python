@@ -25,7 +25,7 @@ We maintain `_extra.py` with test cases that depend on SQLAlchemy's reusable dia
 poetry shell
 cd src/databricks/sqlalchemy/test
 python -m pytest test_suite.py --dburi \
-  "databricks://token:$access_token@$host?http_path=$http_path&catalog=$catalog&schema=$schema" 
+  "databricks://token:$access_token@$host?http_path=$http_path&catalog=$catalog&schema=$schema -c ../setup.cfg" 
 ```
 
 Whatever schema you pass in the `dburi` argument should be empty. Some tests also require the presence of an empty schema named `test_schema`. Note that we plan to implement our own `provision.py` which SQLAlchemy can automatically use to create an empty schema for testing. But for now this is a manual process.

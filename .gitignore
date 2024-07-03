@@ -211,3 +211,6 @@ test.env
 
 #intellij stuff
 .idea
+
+# don't commit authentication info to source control
+*.env
