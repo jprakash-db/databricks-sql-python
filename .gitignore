@@ -208,3 +208,6 @@ build/
 
 # don't commit authentication info to source control
 test.env
+
+#intellij stuff
+.idea
