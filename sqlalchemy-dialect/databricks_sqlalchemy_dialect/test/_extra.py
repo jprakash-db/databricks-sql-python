@@ -15,7 +15,7 @@ from sqlalchemy.testing.suite.test_types import (
     _DateFixture,
     literal,
 )
-from sqlalchemy_db import TINYINT, TIMESTAMP
+from databricks_sqlalchemy_dialect import TINYINT, TIMESTAMP
 
 
 class TinyIntegerTest(_LiteralRoundTripFixture, fixtures.TestBase):

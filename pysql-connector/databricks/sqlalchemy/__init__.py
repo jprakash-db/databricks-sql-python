@@ -1,5 +1,5 @@
 try:
-    from sqlalchemy_db import *
+    from databricks_sqlalchemy_dialect import *
 except ImportError:
     import warnings
     warnings.warn(

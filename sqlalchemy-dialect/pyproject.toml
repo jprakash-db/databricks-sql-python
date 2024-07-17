@@ -5,7 +5,7 @@ description = "SQLAlchemy dialect for integration with Databricks databases"
 authors = ["Databricks <databricks-sql-connector-maintainers@databricks.com>"]
 license = "Apache-2.0"
 readme = "README.md"
-packages = [{ include = "sqlalchemy_db", from = "src" }]
+packages = [{ include = "databricks_sqlalchemy_dialect" }]
 include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
@@ -24,7 +24,7 @@ pytest-dotenv = "^0.5.2"
 "Bug Tracker" = "https://github.com/databricks/databricks-sql-python/issues"
 
 [tool.poetry.plugins."sqlalchemy.dialects"]
-"databricks" = "sqlalchemy_db:DatabricksDialect"
+"databricks" = "databricks_sqlalchemy_dialect:DatabricksDialect"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

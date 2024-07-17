@@ -76,9 +76,9 @@ The [SQLAlchemy type hierarchy](https://docs.sqlalchemy.org/en/20/core/type_basi
 
 In addition, the dialect exposes three UPPERCASE SQLAlchemy types which are specific to Databricks:
 
-- [`sqlalchemy_db.TINYINT`](https://docs.databricks.com/en/sql/language-manual/data-types/tinyint-type.html)
-- [`sqlalchemy_db.TIMESTAMP`](https://docs.databricks.com/en/sql/language-manual/data-types/timestamp-type.html)
-- [`sqlalchemy_db.TIMESTAMP_NTZ`](https://docs.databricks.com/en/sql/language-manual/data-types/timestamp-ntz-type.html)
+- [`databricks_sqlalchemy_dialect.TINYINT`](https://docs.databricks.com/en/sql/language-manual/data-types/tinyint-type.html)
+- [`databricks_sqlalchemy_dialect.TIMESTAMP`](https://docs.databricks.com/en/sql/language-manual/data-types/timestamp-type.html)
+- [`databricks_sqlalchemy_dialect.TIMESTAMP_NTZ`](https://docs.databricks.com/en/sql/language-manual/data-types/timestamp-ntz-type.html)
 
 
 ### `LargeBinary()` and `PickleType()`
@@ -93,7 +93,7 @@ SQLAlchemy's `Enum()` type depends on `CHECK` constraints and is therefore not y
 
 ### `DateTime()`, `TIMESTAMP_NTZ()`, and `TIMESTAMP()`
 
-Databricks Runtime provides two datetime-like types: `TIMESTAMP` which is always timezone-aware and `TIMESTAMP_NTZ` which is timezone agnostic. Both types can be imported from `sqlalchemy_db` and used in your models.
+Databricks Runtime provides two datetime-like types: `TIMESTAMP` which is always timezone-aware and `TIMESTAMP_NTZ` which is timezone agnostic. Both types can be imported from `databricks_sqlalchemy_dialect` and used in your models.
 
 The SQLAlchemy documentation indicates that `DateTime()` is not timezone-aware by default. So our dialect maps this type to `TIMESTAMP_NTZ()`. In practice, you should never need to use `TIMESTAMP_NTZ()` directly. Just use `DateTime()`.
 
@@ -103,7 +103,7 @@ _Note that SQLAlchemy documentation suggests that you can declare a `DateTime()`
 
 ```python
 from sqlalchemy import DateTime
-from sqlalchemy_db import TIMESTAMP
+from databricks_sqlalchemy_dialect import TIMESTAMP
 
 class SomeModel(Base):
     some_date_without_timezone  = DateTime()
