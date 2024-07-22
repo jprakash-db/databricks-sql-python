@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "databricks-sqlalchemy-dialect"
+version = "1.0.0"
+description = "SQLAlchemy dialect for integration with Databricks databases"
+authors = ["Databricks <databricks-sql-connector-maintainers@databricks.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{ include = "databricks_sqlalchemy_dialect" }]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+sqlalchemy = { version = ">=2.0.21"}
+alembic = { version = "^1.0.11", optional = true }
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+mypy = "^0.981"
+pylint = ">=2.12.0"
+black = "^22.3.0"
+pytest-dotenv = "^0.5.2"
+
+[tool.poetry.urls]
+"Homepage" = "https://github.com/databricks/databricks-sql-python"
+"Bug Tracker" = "https://github.com/databricks/databricks-sql-python/issues"
+
+[tool.poetry.plugins."sqlalchemy.dialects"]
+"databricks" = "databricks_sqlalchemy_dialect:DatabricksDialect"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+ignore_missing_imports = "true"
+exclude = ['ttypes\.py$', 'TCLIService\.py$']
+
+[tool.black]
+exclude = '/(\.eggs|\.git|\.hg|\.mypy_cache|\.nox|\.tox|\.venv|\.svn|_build|buck-out|build|dist|thrift_api)/'
