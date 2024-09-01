@@ -21,10 +21,10 @@ from databricks import sql
 # Load environment variables from .env file
 # load_dotenv()
 
-host = "e2-dogfood.staging.cloud.databricks.com"
-http_path = "/sql/1.0/warehouses/58aa1b363649e722"
+host = os.getenv("MY_SERVER_HOSTNAME")
+http_path = os.getenv("MY_HTTP_PATH")
+access_token = os.getenv("MY_TOKEN")
 
-access_token = ""
 connection = sql.connect(
     server_hostname=host,
     http_path=http_path,
@@ -32,9 +32,9 @@ connection = sql.connect(
 
 
 cursor = connection.cursor()
-cursor.execute('SELECT :param `p`, * FROM RANGE(10)', {"param": "foo"})
+cursor.execute("select * from `auto_maintenance_bugbash`.`tpcds_sf1000_naga_testv32`.`store_sales` LIMIT 1000")
 # cursor.execute('SELECT 1')
-result = cursor.fetchall()
+result = cursor.fetchmany(10)
 for row in result:
     print(row)
 
